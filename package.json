@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "lil-gui": "^0.19.2",
+    "three": "^0.167.0"
+  },
+  "devDependencies": {
+    "webpack": "^5.93.0"
+  },
+  "importmap": {
+    "imports": {
+      "three": "./node_modules/three/build/three.module.js",
+      "three/addons/": "./node_modules/three/examples/jsm/",
+      "lil-gui": "./node_modules/lil-gui/dist/lil-gui.esm.js"
+    }
+  }
+}
