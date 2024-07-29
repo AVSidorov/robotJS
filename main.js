@@ -88,8 +88,8 @@ async function all() {
 
 
     folder_ctrl.add(robot_pose, "A1", -170, 170).listen();
-    folder_ctrl.add(robot_pose, "A2", -190, 45).listen();
-    folder_ctrl.add(robot_pose, "A3", -120, 156).listen();
+    folder_ctrl.add(robot_pose, "A2", -95, 95).listen();
+    folder_ctrl.add(robot_pose, "A3", -70, 206).listen();
     folder_ctrl.add(robot_pose, "A4", -185, 185).listen();
     folder_ctrl.add(robot_pose, "A5", -120, 120).listen();
     folder_ctrl.add(robot_pose, "A6", -350, 350).listen();
