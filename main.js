@@ -57,7 +57,8 @@ async function all() {
     console.log(location);
     let url = "kr10.glb";
     if(!location.protocol.startsWith("http")){
-        url = "http://localhost/kr10.glb";
+        url = "http://localhost/"+location.pathname;
+        url=url.replace("robot.html","kr10.glb");
     }
     console.log(url)
     const gltf = await loader.loadAsync(url);
@@ -104,6 +105,15 @@ async function all() {
 
     const renderer = new THREE.WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);
+    window.addEventListener('resize', function()
+
+    {
+        var width = window.innerWidth;
+        var height = window.innerHeight;
+        renderer.setSize( width, height );
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+    } );
     renderer.setAnimationLoop(animate);
     document.body.appendChild(renderer.domElement);
 

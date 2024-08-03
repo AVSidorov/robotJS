@@ -44,17 +44,6 @@ const QByteArray MySchemeHandler::_name = "myscheme";
 QByteArray MySchemeHandler::name() { return _name; };
 
 class Interceptor : public QWebEngineUrlRequestInterceptor
-/*
-class Interceptor(QtWebEngineCore.QWebEngineUrlRequestInterceptor):
-    def interceptRequest(self, info):
-        url = info.requestUrl()
-        if url.scheme() != 'http' or url.host() != 'my-app':
-           return
-
-        url.setScheme('app')
-        info.redirect(url)
-*/
-
 {
 public:
     Interceptor(QObject *parent = nullptr) : QWebEngineUrlRequestInterceptor(parent) {};
@@ -84,25 +73,9 @@ public:
 
 
 int main(int argc, char *argv[]) {
-//    QJsonObject robotPose;
-//
-//
-//
-//    auto json = QJsonDocument(data);
-//    auto txt = json.toJson(QJsonDocument::Compact);
-//    auto txt = json.toJson();
-
-
-
 
     QWebEngineUrlScheme scheme(MySchemeHandler::name());
-//    scheme.setSyntax(QWebEngineUrlScheme::Syntax::HostAndPort);
     scheme.setSyntax(QWebEngineUrlScheme::Syntax::Path);
-//    scheme.setDefaultPort(2345);
-    scheme.setFlags(QWebEngineUrlScheme::CorsEnabled);
-//    scheme.setFlags(QWebEngineUrlScheme::LocalAccessAllowed|
-//    QWebEngineUrlScheme::LocalScheme|QWebEngineUrlScheme::ServiceWorkersAllowed|QWebEngineUrlScheme::ViewSourceAllowed|
-//    QWebEngineUrlScheme::ContentSecurityPolicyIgnored|QWebEngineUrlScheme::CorsEnabled);
     QWebEngineUrlScheme::registerScheme(scheme);
 
     QApplication a(argc, argv);
@@ -115,8 +88,6 @@ int main(int argc, char *argv[]) {
 
     QWebEngineView *view = new QWebEngineView();
     view->load(QUrl("http://localhost:4444/dist/robot.html"));
-    //view->load(QUrl().fromLocalFile("/home/sid/prog/js/robot/dist/robot.html"));
-    //view->load(QUrl("myscheme:./robot.png"));
     view->show();
 
     return a.exec();
