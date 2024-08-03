@@ -6,9 +6,16 @@
     <style>
         body { margin: 0; }
     </style>
-    <script type="module" src="./dist/main.js"></script>
 </head>
 <body>
-<div>Robot says Hello</div>
+<script type="importmap">
+    {
+      "imports": {
+        "three": "./node_modules/three/build/three.module.min.js",
+        "three/addons/": "./node_modules/three/examples/jsm/"
+      }
+    }
+</script>
+<script type="module" src="/main.js"></script>
 </body>
 </html>

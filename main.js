@@ -1,11 +1,11 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import { GUI } from 'lil-gui';
+import { GUI } from 'three/addons/libs/lil-gui.module.min.js';
 // import * as THREE from './node_modules/three/build/three.module.min.js';
 // import { OrbitControls } from './node_modules/three/examples/jsm/controls/OrbitControls.js';
 // import { GLTFLoader } from './node_modules/three/examples/jsm/loaders/GLTFLoader.js';
-// import { GUI } from './node_modules/three/examples/jsm/libs/lil-gui.module.min.js';
+// import { GUI } from './node_modules/lil-gui/dist/lil-gui.esm.min';
 
 all()
 async function all() {
@@ -54,6 +54,7 @@ async function all() {
 
 //robot
     const loader = new GLTFLoader();
+    console.log(location);
 
     const gltf = await loader.loadAsync('kr10.glb');
     scene.add(gltf.scene);
