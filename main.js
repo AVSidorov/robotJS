@@ -55,8 +55,13 @@ async function all() {
 //robot
     const loader = new GLTFLoader();
     console.log(location);
+    let url = "kr10.glb";
+    if(!location.protocol.startsWith("http")){
+        url = "http://localhost/kr10.glb";
+    }
+    console.log(url)
+    const gltf = await loader.loadAsync(url);
 
-    const gltf = await loader.loadAsync('kr10.glb');
     scene.add(gltf.scene);
     const base = gltf.scene.children[0];
     const shoulder = base.children[0];
